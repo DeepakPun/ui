@@ -1,0 +1,18 @@
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 5173:5173
+    volumes:
+      - /ui/node_modules
+      - .:/ui
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /ui/node_modules
+      - .:/ui
+    command: ['npm', 'run', 'test']
