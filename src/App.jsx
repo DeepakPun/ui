@@ -49,8 +49,13 @@ function App() {
       <h1 className='text-5xl rounded text-center text--300 font-bold bg-blue-300 py-2 tracking-wide'>
         /root/blog
       </h1>
+<<<<<<< HEAD
       <h2 className='text-3xl rounded text-center text-shadow-blue-600 lg-blue-200 py-4 bg-teal-400'>
         Onward to multi-container
+=======
+      <h2 className='text3xl rounded text-center text-shadow-blue-600 lg-blue-200 py-4'>
+        Some changes to the "small-feature" branch
+>>>>>>> 3e74948c7826664033867e7aa98d56e826e77345
       </h2>
       <PostList posts={posts} />
     </div>
