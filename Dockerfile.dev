@@ -11,7 +11,7 @@
 FROM node:24.2.0-alpine
 
 # Use production node environment by default.
-ENV NODE_ENV=development
+# ENV NODE_ENV=development
 
 WORKDIR /ui
 
