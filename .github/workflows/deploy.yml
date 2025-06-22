@@ -2,18 +2,30 @@ name: Deploy Frontend
 on:
   push:
     branches:
-      - master
+      - master # or your deployment branch
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - run: docker build --build-arg NODE_VERSION=24.2.0 -t pundeepak/react-ui .
-      - run: docker push pundeepak/react-ui
-      - run: docker run -e CI=true pundeepak/react-ui npm test
 
+      # Login to Docker Hub
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      # Build and tag with unique version
+      - name: Generate timestamp
+        run: echo "TIMESTAMP=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
+      - name: Create unique version label
+        run: echo "VERSION_LABEL=${TIMESTAMP}-${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      # Build and push Docker image
+      - run: docker build --build-arg NODE_VERSION=24.2.0 -t pundeepak/react-ui:${{ env.VERSION_LABEL }} -f Dockerfile.dev .
+      - run: docker push pundeepak/react-ui:${{ env.VERSION_LABEL }}
+
+      # Run tests
+      - run: docker run -e CI=true pundeepak/react-ui:${{ env.VERSION_LABEL }} npm test
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
 

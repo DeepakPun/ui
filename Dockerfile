@@ -1,6 +1,4 @@
-ARG NODE_VERSION=24.2.0
-
-FROM node:${NODE_VERSION}-alpine AS builder
+FROM node:24.2.0-alpine AS builder
 
 WORKDIR /ui
 
