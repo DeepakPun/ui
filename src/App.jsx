@@ -50,7 +50,7 @@ function App() {
         /root/blog
       </h1>
       <h2 className='text3xl rounded text-center text-shadow-blue-600 lg-blue-200 py-4'>
-        Very Hot weather today
+        Some changes to the "small-feature" branch
       </h2>
       <PostList posts={posts} />
     </div>
