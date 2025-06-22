@@ -17,7 +17,7 @@ jobs:
         run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to Elastic Beanstalk
-        uses: einaregilsson/beanstalk-deploy@v18
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
@@ -28,3 +28,37 @@ jobs:
           version_label: ${{ github.sha }}
           deployment_package: deploy.zip
           use_existing_version_if_available: true
+
+#           name: Deploy to Elastic Beanstalk
+
+# on:
+#   push:
+#     branches:
+#       - main  # or your deployment branch
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+
+#     # Your build steps here (if any)
+#     # - name: Build Docker image
+#     #   run: docker build -t my-app .
+
+#     # Your packaging steps here (if any)
+#     # - name: Generate deployment package
+#     #   run: zip -r deploy.zip Dockerrun.aws.json .ebextensions
+
+#     - name: Deploy to EB
+#       uses: einaregilsson/beanstalk-deploy@v21  # Make sure you're using a recent version
+#       with:
+#         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         application_name: your-application-name
+#         environment_name: your-environment-name
+#         version_label: ${{ github.sha }}
+#         region: your-aws-region  # e.g., us-east-1
+#         deployment_package: your-deployment-package.zip  # or deploy.zip
+#         use_existing_version_if_available: true  # This is the key parameter you need to add
+
