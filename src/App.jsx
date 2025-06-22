@@ -50,6 +50,7 @@ function App() {
         /root/blog
       </h1>
       <h2>Hello world</h2>
+      <h3>Made small change</h3>
       {/* {output} */}
       <PostList posts={posts} />
     </div>
