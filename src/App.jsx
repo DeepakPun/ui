@@ -49,8 +49,6 @@ function App() {
       <h1 className='text-5xl rounded text-center text--300 font-bold bg-blue-300 py-2 tracking-wide'>
         /root/blog
       </h1>
-      <h2>Hello world</h2>
-      <h3>Made small change</h3>
       {/* {output} */}
       <PostList posts={posts} />
     </div>
