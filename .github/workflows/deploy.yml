@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master # or your deployment branch
+  pull_request:
+    branches:
+      - small-feature
 
 jobs:
   deploy:
