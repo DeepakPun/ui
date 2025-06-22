@@ -49,7 +49,9 @@ function App() {
       <h1 className='text-5xl rounded text-center text--300 font-bold bg-blue-300 py-2 tracking-wide'>
         /root/blog
       </h1>
-      {/* {output} */}
+      <h2 className='text3xl rounded text-center text-shadow-blue-600 lg-blue-200 py-4'>
+        Very Hot weather today
+      </h2>
       <PostList posts={posts} />
     </div>
   )
