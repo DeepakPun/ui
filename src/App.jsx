@@ -46,12 +46,15 @@ function App() {
 
   return (
     <div className='p-2 m-5'>
-      <h1 className='text-3xl rounded text-center text-shadow-blue-600 lg-blue-200 py-4 my-2 bg-teal-300'>
+      {/* <h1 className='text-3xl rounded text-center text-shadow-blue-600 lg-blue-200 py-4 my-2 bg-teal-300'>
         /root/blog
-      </h1>
+      </h1> */}
       <h2 className='text-3xl rounded text-center text-shadow-blue-600 lg-blue-200 py-4 my-2 bg-teal-400'>
         Onward to multi-container
       </h2>
+      <p className='rounded text-center py-4 my-2 bg-teal-200'>
+        How to structure
+      </p>
       <PostList posts={posts} />
     </div>
   )
