@@ -32,6 +32,15 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
 
+      # Do this after obtaining and configuring ssl certificates
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: deploy-package
+      #     path: |
+      #       .ebextensions
+      # Add other directories or files you want to include
+
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
         with:
