@@ -4,6 +4,7 @@ notes.js
 # Logs
 
 **/.DS_Store
+**/.vscode
 
 **/logs
 **/_.log
